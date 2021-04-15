@@ -1,0 +1,21 @@
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+   
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: black;
+}
+
+.gap-2 {
+ margin-right: 2cm;
+ margin-bottom: 15px;
+}
+
+body{
+ padding: auto;
+ padding-left: 15px;
+ padding-right: 15px;
+}

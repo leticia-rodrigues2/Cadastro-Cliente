@@ -10,27 +10,51 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
-    <title>Hello, world!</title>
+    <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
+    <title>Relatório</title>
   </head>
   <body>
-  <h1>Relatorio </h1>
-
-  <div class="col-12">
-            <a href="/cadastroCliente" class="btn btn-outline-dark">Novo</a>
-        </div>
+  <h1>Relatório </h1>
   
-    @foreach ($clientes as $cliente)
-    <p>Nome Cliente : {{ $cliente->nome_cliente }}</p>
-    <p>Email Cliente : {{ $cliente->email_cliente}}</p>
-    <p>Senha Clinte: {{ $cliente->senha_cliente }}</p>
-    <p>Contato Cliente: {{ $cliente->telefone_cliente }}</p>
-    <p>Data de nascimento Cliente: {{ $cliente->data_nasc_cliente}}</p>
-    <div class="col-12">
-            <a href="/editarFormulario/{{$cliente->id_cliente}}" class="btn btn-outline-dark">Editar</a>
-        </div>
-    <p>*------------------------------------------------------------------*</p>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a href="/cadastroCliente"  class="btn btn-outline-dark me-md-2 btn-lg" type="button">Criar novo cadastro</a>
+</div>
+
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Senha</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Data de nascimento</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+   @foreach ($clientes as $cliente) 
+   
+    
+    <tr>
+      <th scope="row">{{$cliente->id_cliente}}</th>
+      <td>{{ $cliente->nome_cliente }}</td>
+      <td>{{ $cliente->email_cliente}}</td>
+      <td>{{ $cliente->senha_cliente }}</td>
+      <td>{{ $cliente->telefone_cliente }}</td>
+      <td>{{ $cliente->data_nasc_cliente}}</td>
+      <td >
+         <a href="/editarFormulario/{{$cliente->id_cliente}}" class="btn btn-outline-dark">Editar</a>
+      </td>
+    </tr>
     @endforeach
+   
+  </tbody>
+</table>
+
+  
+   
 
 
 
